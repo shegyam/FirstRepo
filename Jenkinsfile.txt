@@ -1,5 +1,10 @@
-// buildPlugin()
-buildPlugin(configurations: [
-        [ platform: "linux", jdk: "11", jenkins: null ],
-        [ platform: "windows", jdk: "11", jenkins: null ]
-    ])
+pipeline {
+    agent any // This runs the pipeline on any available agent
+    stages {
+        stage('Check Terraform Version') {
+            steps {
+                sh 'terraform version' // Executes the command in the shell
+            }
+        }
+    }
+}
